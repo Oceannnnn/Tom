@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>汤姆猫</title>
+	</head>
+	<style type="text/css">
+		#body,img{
+				margin: 0 auto;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+	</style>
+	<body onclick="action(event)">
+		<img src="angry/angry_00.jpg"/ id="tom">
+		<audio src="" id="play"></audio>
+	</body>
+</html>
+<script type="text/javascript">
+	var tom=document.getElementById('tom');
+	var vidio=document.getElementById('play');
+	var width=document.documentElement.clientWidth;
+	var height=document.documentElement.clientHeight;
+	function go(name,last,first){
+		var i=0;
+		animate();
+		function animate(){
+			var	src=name+'/'+name+'_'+(i<10?'0':'')+i+'.jpg';
+			tom.src=src;
+			if(i<last){
+				setTimeout(animate,100);
+				if(i==11){
+					vidio.src='sounds/'+name+'.m4a';
+					vidio.play();
+				}
+			i++;
+			}
+		
+		}
+		
+	}
+	function action(event){
+		var x=event.pageX*360/width;
+		var y=event.pageY*640/height;
+		console.log('x轴坐标:'+x,'y轴坐标:'+y);
+		if(x>153&&x<212&&y>205&&y<234){
+			go('angry',25,0);
+		}
+		if(x>137&&x<228&&y>390&&y<429){
+			go('cymbal',12,0);
+		}
+		if(x>245&&x<274&&y>258&&y<297){
+			go('drink',80,0);
+		}
+		if(x>100&&x<238&&y>238&&y<296){
+			go('eat',38,0);
+		}
+		if(x>246&&x<273&&y>478&&y<580){
+			go('fart',27,0);
+		}
+		if(x>141&&x<161&&y>584&&y<619){
+			go('foot_right',29,0);
+		}
+		if(x>197&&x<220&&y>589&&y<615){
+			go('foot_left',29,0);
+		}
+		if(x>148&&x<242&&y>123&&y<154){
+			go('knockout',80,0);
+		}
+		if(x>144&&x<169&&y>169&&y<204){
+			go('pie',23,0);
+		}
+		if(x>91&&x<130&&y>360&&y<414){
+			go('scratch',55,0);
+		}
+		if(x>140&&x<230&&y>454&&y<506){
+			go('stomach',33,0);
+		}
+	}
+	
+</script>
